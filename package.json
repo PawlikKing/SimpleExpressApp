@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "nodemon"
+    "dev": "tsx src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +14,14 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "tsx": "^4.20.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/sequelize": "^4.28.20",
     "typescript": "^5.9.3"
   }
 }

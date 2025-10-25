@@ -1,12 +1,19 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from "path";
+import { fileURLToPath } from 'url';
+import { productRouter } from 'routers';
 
 dotenv.config();
 
 const PORT = process.env.PORT || '3000';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.json());
 
 app.set("views", path.join(__dirname, "views"));
 
@@ -21,11 +28,11 @@ app.use('/main', (req: Request, res: Response) => {
     });
 });
 
-app.use("/product", (req: Request, res: Response) => {});
+app.use("/product", productRouter);
 
-app.use("/*", (req: Request, res: Response) => {
+/*app.use("/", (req: Request, res: Response) => {
     res.redirect("/main");
-})
+})*/
 
 app.listen(PORT, () => {
   console.log(`App started on port: ${PORT}`);
