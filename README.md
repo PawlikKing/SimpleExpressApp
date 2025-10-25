@@ -1,1 +1,1 @@
-Simple thing fro college
+Simple thing for college
