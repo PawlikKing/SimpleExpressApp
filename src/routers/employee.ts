@@ -1,11 +1,9 @@
-import { ProductController } from "@controllers";
 import {Router, Request, Response} from "express";
 
 const router = Router();
 
-router.get('/item', ProductController.getProduct)
 router.get('/', (req: Request, res:Response) => {
-    res.render('main');
+    res.render('employee');
 })
 
 export default router;

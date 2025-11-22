@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from "path";
 import { fileURLToPath } from 'url';
-import { productRouter } from 'routers';
+import { employeeRouter, productRouter } from 'routers';
 
 dotenv.config();
 
@@ -29,6 +29,8 @@ app.use('/main', (req: Request, res: Response) => {
 });
 
 app.use("/product", productRouter);
+app.use("/employee", employeeRouter);
+
 
 /*app.use("/", (req: Request, res: Response) => {
     res.redirect("/main");
