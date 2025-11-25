@@ -1,27 +1,32 @@
 {
-  "name": "panstwowa-uczelnia",
-  "version": "1.0.0",
-  "description": "Projekt",
-  "main": "index.js",
-  "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc",
-    "dev": "tsx watch src/index.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "sequelize": "^6.37.7",
-    "sqlite3": "^5.1.7",
-    "tsx": "^4.20.6"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/sequelize": "^4.28.20",
-    "typescript": "^5.9.3"
-  }
+	"name": "simpleexpressapp",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"workspaces": [
+		"apps/*",
+		"libs/*"
+	],
+	"scripts": {
+		"front:dev": "npm run start --workspace=front-app",
+		"front:build": "npm run build --workspace=front-app",
+		"front:test": "npm run test --workspace=front-app"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"prettier": "^3.0.0",
+		"typescript": "~5.7.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PawlikKing/SimpleExpressApp.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/PawlikKing/SimpleExpressApp/issues"
+	},
+	"homepage": "https://github.com/PawlikKing/SimpleExpressApp#readme"
 }
