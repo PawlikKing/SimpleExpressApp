@@ -10,24 +10,26 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule],
   template: `
-    <div class="app-loader" [hidden]="!loading()">
-      <div class="loader-content">
-        <div class="loader-bars">
-          <div class="bar bar-blue"></div>
-          <div class="bar bar-orange"></div>
-          <div class="bar bar-yellow"></div>
+    @if (loading()) {
+      <div class="app-loader">
+        <div class="loader-content">
+          <div class="loader-text">For Lazy People from Lazy People</div>
+          <div class="loader-bars">
+            <div class="bar bar-blue"></div>
+            <div class="bar bar-orange"></div>
+            <div class="bar bar-yellow"></div>
+          </div>
         </div>
-        <div class="loader-text">For Lazy People from Lazy People</div>
       </div>
-    </div>
+    }
 
     <mat-toolbar color="primary">
       <span style="cursor:pointer" (click)="router.navigateByUrl('/')">BudgetApp</span>
       <span style="flex:1 1 auto"></span>
-      <button mat-icon-button aria-label="everyone" (click)="router.navigateByUrl('/everyone')">
+      <button mat-icon-button (click)="router.navigateByUrl('/everyone')">
         <mat-icon>public</mat-icon>
       </button>
-      <button mat-icon-button aria-label="my" (click)="router.navigateByUrl('/my')">
+      <button mat-icon-button (click)="router.navigateByUrl('/my')">
         <mat-icon>person</mat-icon>
       </button>
       <button mat-button (click)="router.navigateByUrl('/login')">Login</button>
@@ -45,70 +47,68 @@ import { MatIconModule } from '@angular/material/icon';
         justify-content: center;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.95));
         z-index: 9999;
+        backdrop-filter: blur(4px);
       }
+
       .loader-content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 20px;
       }
+
       .loader-bars {
         display: flex;
-        gap: 14px;
+        gap: 10px;
         align-items: center;
-        height: 60px;
       }
+
       .bar {
         width: 18px;
-        height: 36px;
+        height: 48px;
         border-radius: 4px;
-        transform: rotate(25deg);
-        transform-origin: center;
+        transform: rotate(25deg) scaleY(1);
+        animation: pulse 1.2s ease-in-out 1;
       }
+
       .bar-blue {
         background: #1976d2;
-        animation: pulse 900ms ease-in-out infinite;
+        animation-delay: 0ms;
       }
       .bar-orange {
         background: #ff9800;
-        animation: pulse 900ms ease-in-out infinite 120ms;
+        animation-delay: 150ms;
       }
       .bar-yellow {
         background: #ffeb3b;
-        animation: pulse 900ms ease-in-out infinite 240ms;
+        animation-delay: 300ms;
+        color: #000;
       }
+
       .loader-text {
+        font-size: 24px;
         font-weight: 600;
-        color: #222;
-        letter-spacing: 0.2px;
+        color: #1a4971;
       }
 
       @keyframes pulse {
-        0% {
-          width: 18px;
-        }
-        25% {
-          width: 34px;
+        0% 100% {
+          transform: rotate(25deg) scaleY(0.4);
         }
         50% {
-          width: 46px;
-        }
-        75% {
-          width: 34px;
-        }
-        100% {
-          width: 18px;
+          transform: rotate(25deg) scaleY(1);
         }
       }
     `,
   ],
 })
 export class App implements OnInit {
-  protected readonly title = signal('simple-front');
   protected readonly loading = signal(true);
   constructor(public router: Router) {}
 
   ngOnInit(): void {
-    setTimeout(() => this.loading.set(false), 900);
+    setTimeout(() => {
+      this.loading.set(false);
+    }, 1300);
   }
 }
