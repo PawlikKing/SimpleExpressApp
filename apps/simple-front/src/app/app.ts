@@ -92,7 +92,8 @@ import { MatIconModule } from '@angular/material/icon';
       }
 
       @keyframes pulse {
-        0% 100% {
+        0%,
+        100% {
           transform: rotate(25deg) scaleY(0.4);
         }
         50% {
