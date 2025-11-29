@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Frontend Build
 
 on:
   push:
@@ -26,25 +26,17 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build all workspaces
-      run: npm run build:all
+    - name: Build Frontend
+      run: npm run front:build
 
-    - name: Test Angular Frontend
+    - name: Test Frontend
       run: npm run front:test -- --run
       continue-on-error: true
 
-    - name: Upload Angular build artifacts
+    - name: Upload build artifacts
       if: success() && matrix.node-version == '20.x'
       uses: actions/upload-artifact@v4
       with:
         name: front-app-build
         path: apps/front-app/dist/
-        retention-days: 7
-
-    - name: Upload Auth build artifacts
-      if: success() && matrix.node-version == '20.x'
-      uses: actions/upload-artifact@v4
-      with:
-        name: auth-app-build
-        path: apps/auth-app/dist/
         retention-days: 7
