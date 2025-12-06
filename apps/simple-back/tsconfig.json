@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@app/guards": ["guards/index.ts"],
+      "@app/controllers": ["controllers/index.ts"],
+      "@app/routers": ["routers/index.ts"],
+      "@app/services": ["services/index.ts"],
+      "@app/models": ["models/index.ts"],
+      "@app/shared/types": ["shared/types/index.ts"],
+      "@libs/*": ["../../../libs/*"]
+    },
+    "outDir": "../../dist/app",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

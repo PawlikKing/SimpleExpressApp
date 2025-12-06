@@ -1,8 +1,7 @@
 {
-	"name": "simpleexpressapp",
+	"name": "simplewebapp",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"private": true,
 	"workspaces": [
 		"apps/*",
 		"libs/*"
@@ -16,17 +15,5 @@
 		"concurrently": "^8.2.2",
 		"prettier": "^3.0.0",
 		"typescript": "~5.7.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/PawlikKing/SimpleExpressApp.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "MIT",
-	"type": "commonjs",
-	"bugs": {
-		"url": "https://github.com/PawlikKing/SimpleExpressApp/issues"
-	},
-	"homepage": "https://github.com/PawlikKing/SimpleExpressApp#readme"
+	}
 }
