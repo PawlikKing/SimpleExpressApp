@@ -9,7 +9,11 @@
 	"scripts": {
 		"front:dev": "npm run start --workspace=front-app",
 		"front:build": "npm run build --workspace=front-app",
-		"front:test": "npm run test --workspace=front-app"
+		"front:test": "npm run test --workspace=front-app",
+
+		"app:dev": "npm run start --workspace=simple-back",
+		"app:build": "npm run build --workspace=simple-back",
+		"app:test": "npm run test --workspace=simple-back"
 	},
 	"devDependencies": {
 		"concurrently": "^8.2.2",

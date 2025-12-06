@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "build": "tsup src/app.ts --format esm --dts --out-dir dist --tsconfig tsconfig.json",
     "start": "node dist/app.js",
     "dev": "tsx watch --tsconfig tsconfig.json -r tsconfig-paths/register src/app.ts"
@@ -17,13 +17,13 @@
     "@types/node": "^24.5.2",
     "@types/node-cron": "^3.0.11",
     "@types/sequelize": "^4.28.20",
-    "sqlite3": "^5.1.7",
     "tsconfig-paths": "^4.2.0",
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.47",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
